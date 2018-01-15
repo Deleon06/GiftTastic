@@ -1,0 +1,136 @@
+///Pseudo code (combined JS on each HTML page below)
+
+====================== Page 1 (User Input) ==================== 
+
+// Define variables userFirstName and userLastName that contain the First and Last name of the user.  
+		var userFirstName;
+		var userLastName ;
+
+// Define variable userLocation that contains the location of the user which is a five digit zip code
+		var userLocation = "zip code"
+
+// A submit button at the bottom of the page, should store the info into firebase   
+// and take the user to a second html Page. This happens because of the form action in the html page 
+	
+
+// After the user clicks the submit button, a globe Giphy directs the user to the second page 
+
+// Could possibily use typed JS (new tech) when user inputs info
+
+====================== Page 2 (Volunteer Results) =========================
+
+// Define volunteer orgs and destinations with the variable volunteerOrgDestination 
+// defined as an array of 35 objects.
+// each object has a city and an array of 3 volunteer orgs at that city
+
+	var volunteerOrgDestination = [35 cities with possible 3 organisations to volunteer at]
+	
+	 
+// As the second page loads the user will see three choices of volunteer orgs
+// the 3 choices correspond to one randomly chosen city from the array of 35. 
+// This result is the return value from the below function 
+
+	// This function will load the volunteer org results 
+		function getVolunteerResults(){
+		// Using the url from the AJAX call to pull from the volunteer org API
+			var queryURL;
+		// Define variable searchVolunteerOrg that..
+		// ..takes the value randomly from the array defined by volunteerOrg
+			var searchVolunteerOrg; 
+
+		// This is the Ajax call that gets the data from the volunteerOrg APIs
+			$.ajax({
+	          url: queryURL,
+	          method: "GET"
+	        }).done(function(response) {
+	        	
+	        });
+
+		}
+		
+		//randomOrg is an array containing 3 randomly picked volunteer Organisation destinations
+		//These 3 are provided as the possible options for the user to go to
+
+
+
+	var randomOrg = function(volunteerOrgDestination, 3)
+	{
+
+		var result = [];
+		for(var i=0; i<3; i++)
+		{
+			result.push(volunteerOrgDestination[Math.floor(Math.random()*(volunteerOrgDestination.length-1))+1]);
+
+		}
+
+		return result;
+
+	}
+
+
+// Each result will display
+    // 1) A clickable image that will direct the user to the volunteer website 
+    // 2) The name of the city
+    // 3) A check box to select 
+
+// On the bottom of the page, the user will have the option to refresh the results with the click of a button
+
+// The user selection(s) will be saved in firebase 
+
+// a globe Giphy directs the user to the third page when user checks the check-box against the volunteer org chosen
+
+
+// ====================== EVENT LISTENERS (PLACEHOLDER) ===================== 
+// getVolunteerResults()
+
+// use jquery to select the submit button once its clicked 
+ $(buttonID).on('click')
+
+ $("p").on("click", function(){
+    alert("The paragraph was clicked.");
+});
+
+====================== Page 3 (Flight Results) =======================
+
+// On page load the user will be prompted to enter date of travel. 
+
+// Once this field is filled in with the datepicker widget, 
+// the user will...
+// ...see all the flight possibilites..
+// ..to the selected destination from Page 2
+
+// The flight data will be pulled from the travel APIs below
+	/ https://aviation-edge.com/developers/
+
+// Each result will display:
+   // 1) Date of travel
+   // 2) Origin and destination
+   // 3) Price
+   // 4) Current weather of the destination pulled from the API below
+   / http://api.openweathermap.org/data/2.5/weather?q={city name}APPID=e5c3008e506fa23de24affb1ca78a0c8
+   		APIKEY = e5c3008e506fa23de24affb1ca78a0c8
+   // 5) Selection box to check out 
+
+
+// Once the user selects a suitable flight and confirms the payment..
+// ..the current html page will be reloaded with a thank you message!! :D
+
+New Technology:
+
+somewhere, we need to give the user an option to pick date of travel
+
+that would be a text field
+
+in this field, we use a jquery widget called datepicker, that autofills the date in the field,
+ with a calendar tool
+
+  within head tags...
+
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+
+and then in the body....
+<p> Date: <input type = "text" id="datepicker" /></p>

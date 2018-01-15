@@ -1,0 +1,43 @@
+body {
+	background-image: url("../images/redbackground.jpg")
+}
+
+#celebrity-tags {
+	width: 100%;
+    height: 20%;
+    overflow: auto;
+    border: 2px solid red;
+    background-color: white;
+    color: black;
+    opacity: 1;
+}
+
+button,
+input[type="submit"]
+ {
+	background: black;
+	color: #fff;
+	cursor: auto;
+	margin: 2px;
+	border-style: solid;
+	border-color: red;
+}
+
+input[type="text"]
+{
+	color: white;
+	background: black;
+	border-color: red;
+}
+
+p {
+	color: white;
+}
+
+form {
+	color: white;
+}
+
+#celebrity-tags {
+	float: left
+}
