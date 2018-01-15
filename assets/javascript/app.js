@@ -50,7 +50,7 @@ $(document).ready(function (){
 	  	})	
 	})
 	//creating the on click function to run or stop the giphy
-	$(document).on("click", ".animal-image", function() {
+	$(document).on("click", ".celebrity-image", function() {
 
 	    var state = $(this).attr("data-state");
 
